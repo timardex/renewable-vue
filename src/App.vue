@@ -1,16 +1,15 @@
 <template>
   <div id="app">
-    {{usersList}}
+    <Users />
   </div>
 </template>
 
 <script>
-import {mapState} from 'vuex'
-
+const Users = () => import('@/components/Users')
 export default {
   name: 'App',
-  computed: {
-    ...mapState('users', ['usersList'])
+  components: {
+    Users
   },
   created() {
     this.$store.dispatch('users/getUsers');
@@ -19,5 +18,13 @@ export default {
 </script>
 
 <style lang="scss">
+body {
+  margin: 0;
+}
 
+#app {
+  width: 100%;
+  max-width: 768px;
+  margin: auto;
+}
 </style>
