@@ -1,15 +1,19 @@
 <template>
   <div id="app">
-    {{users}}
+    {{usersList}}
   </div>
 </template>
 
 <script>
 import {mapState} from 'vuex'
+
 export default {
   name: 'App',
   computed: {
-    ...mapState('form', ['users'])
+    ...mapState('users', ['usersList'])
+  },
+  created() {
+    this.$store.dispatch('users/getUsers');
   }
 }
 </script>
