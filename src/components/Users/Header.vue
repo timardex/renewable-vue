@@ -1,8 +1,8 @@
 <template>
   <ul>
-    <li v-for="(user, index) in users" :key="index" class="title">
-      <span v-for="(key, name) in user" :key="name">
-        {{name}}
+    <li>
+      <span v-for="(title, index) in titles" :key="index">
+        {{title}}
       </span>
     </li>
   </ul>
@@ -10,12 +10,11 @@
 
 <script>
 export default {
-  props: {
-    users: {
-      type: Array,
-      default: null
-    }
-  }
+  data: () => ({
+    titles: [
+      'Name', 'Email', 'Company'
+    ]
+  })
 }
 </script>
 
@@ -23,7 +22,6 @@ export default {
 @import '../../assets/scss/variables.scss';
 
 ul {
-  margin: 0;
   li {
     span {
       text-align: center;

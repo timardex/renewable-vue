@@ -4,6 +4,7 @@
       <span v-for="(key, name) in user" :key="name">
         {{key}}
       </span>
+      <i class="fas fa-minus-circle" @click="removeUser(user)"></i>
     </li>
   </ul>
 </template>
@@ -15,6 +16,11 @@ export default {
       type: Array,
       default: null
     }
+  },
+  methods: {
+    removeUser(user) {
+      this.$store.dispatch('users/removeUser', user);
+    }
   }
 }
 </script>
@@ -24,9 +30,18 @@ export default {
 
 ul {
   li {
+    position: relative;
+
     span {
       margin: .2rem;
       background: $color1;
+    }
+
+    .fas {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
     }
   }
 }

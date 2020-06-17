@@ -11,4 +11,12 @@ export const actions = {
       throw new Error(`${error}`);
     }
   },
+
+  async removeUser({commit}, payload) {
+    await commit('REMOVE_USER', payload)
+  },
+
+  async addUser({commit}, payload) {
+    await commit('ADD_USER', payload)
+  }
 }
