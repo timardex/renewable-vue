@@ -20,10 +20,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../assets/scss/variables.scss';
+
 ul {
+  margin: 0;
   li {
     span {
-      width: 100%;
       text-align: center;
       text-transform: capitalize;
     }

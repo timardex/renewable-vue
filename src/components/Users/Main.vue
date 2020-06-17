@@ -18,3 +18,16 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+@import '../../assets/scss/variables.scss';
+
+ul {
+  li {
+    span {
+      margin: .2rem;
+      background: $color1;
+    }
+  }
+}
+</style>

@@ -1,9 +1,7 @@
 <template>
   <div id="users">
-    <div class="list">
-      <Header :users="usersList.slice(0,1)"/>
-      <Main :users="usersList"/>
-    </div>
+    <Header :users="usersList.slice(0,1)"/>
+    <Main :users="usersList"/>
   </div>
 </template>
 
@@ -34,6 +32,7 @@ export default {
       width: 100%;
 
       span {
+        padding: .5rem 1rem;
         width: 100%;
       }
     }
