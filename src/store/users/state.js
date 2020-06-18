@@ -1,3 +1,5 @@
 export const state = () => ({
-  usersList: []
+  usersList: [],
+  formTitles: [],
+  searchQuery: ''
 })

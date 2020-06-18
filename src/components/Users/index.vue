@@ -1,58 +1,69 @@
 <template>
   <div id="users">
-    <Header />
+    <Message tag="h4" message="Search User" align-text="left"/>
+    <Search />
 
-    <Main v-if="usersList.length" :users="usersList"/>
+    <Message tag="h4" message="Add new User" align-text="left"/>
+    <AddUser :titles="formTitles" />
 
-    <p v-else class="text-center">No users in the database, please add new users below.</p>
+    <Message tag="h4" message="Users List, sort by clicking on titles below" align-text="left"/>
+    <UserHeader :titles="formTitles" />
 
-    <Footer />
+    <div v-if="filteredList.length">
+      <ListUser :users="filteredList" />
+      <Message
+        tag="p"
+        :message="`Number of Users ${filteredList.length}`"
+        align-text="right"/>
+    </div>
+    
+    <Message
+      v-else
+      tag="p"
+      message="No users in the database, please add new users."
+      align-text="center"/>
   </div>
 </template>
 
 <script>
 import {mapState} from 'vuex'
 
-const Header = () => import('@/components/Users/Header')
-const Main = () => import('@/components/Users/Main')
-const Footer = () => import('@/components/Users/Footer')
+const UserHeader = () => import('@/components/Users/Layout/UserHeader')
+const ListUser = () => import('@/components/Users/Layout/ListUser')
+const Message = () => import('@/components/Users/Helpers/Message')
+const Search = () => import('@/components/Users/Helpers/Search')
+const AddUser = () => import('@/components/Users/Layout/AddUser')
 
 export default {
   components: {
-    Header,
-    Main,
-    Footer
+    UserHeader,
+    ListUser,
+    Message,
+    Search,
+    AddUser
   },
   computed: {
-    ...mapState('users', ['usersList', 'formTitles'])
+    ...mapState('users', ['usersList', 'formTitles', 'searchQuery']),
+    filteredList() {
+      return this.usersList.filter((value) => {
+        return (
+          value.name.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+          value.email.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+          value.company.toLowerCase().includes(this.searchQuery.toLowerCase())
+        )
+      })
+    }
   },
   created() {
-    this.$store.dispatch('users/getUsers');
+    this.$store.dispatch('users/getUsers')
   }
 }
 </script>
 
 <style lang="scss">
+@import '../../assets/scss/variables.scss';
+
 #users {
-  overflow: auto;
-  white-space: nowrap;
   padding: 0 1rem;
-
-  ul {
-    list-style: none;
-    padding: 0;
-
-    li {
-      display: flex;
-      align-items: center;
-      width: 100%;
-
-      span {
-        padding: .5rem 1rem;
-        width: 100%;
-        min-width: 120px;
-      }
-    }
-  }
 }
 </style>
