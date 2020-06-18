@@ -4,7 +4,7 @@
       v-for="(user, index) in users"
       :key="index"
       class="table-row">
-
+      <span>#{{index}}</span>
       <div
         v-for="(key, name) in user"
         :key="name"
@@ -47,6 +47,12 @@ export default {
 .responsive-table {
   .table-row {
     border-bottom: solid 1px rgba(255,255,255,0.1);
+
+    span {
+      margin-left: -1rem;
+      margin-right: .2rem;
+      color: $white;
+    }
   }
   .col {
     @media(max-width: $sizeSM) {
