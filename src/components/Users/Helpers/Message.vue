@@ -26,6 +26,6 @@ export default {
 h1, h2, h3, h4, h5, h6 {
   background: $whiteB;
   padding: $spacing1 $spacing2;
-  margin: 2rem 0 .2rem;
+  margin: 1rem 0 .2rem;
 }
 </style>
