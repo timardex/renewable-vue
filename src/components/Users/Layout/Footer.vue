@@ -64,7 +64,7 @@ export default {
   align-items: center;
   position: relative;
   margin-top: 1rem;
-  padding: 0 1rem;
+  padding: 0 2rem;
 
   @media(max-width: $sizeSM) {
     display: block;
@@ -72,69 +72,19 @@ export default {
   }
 
   .form-group {
-    position: relative;
-    padding: 1rem 0 0;
     width: 50%;
-    margin-bottom: 1rem;
-
-    @media(max-width: $sizeSM) {
-      width: 100%;
-    }
-  }
-
-  .form-field {
-    font-family: inherit;
-    width: 80%;
-    border: 0;
-    border-bottom: 1px solid $white;
-    outline: 0;
-    font-size: 1rem;
-    color: $white;
-    padding: 7px 0;
-    background: transparent;
-    transition: border-color 0.2s;
 
     @media(max-width: $sizeSM) {
       width: 100%;
     }
 
-    &:required,&:invalid { box-shadow:none; }
-
-    &::placeholder {
-      color: transparent;
+    .form-field {
+      width: 90%;
     }
 
-    &:placeholder-shown ~ .form-label {
-      font-size: 1rem;
-      cursor: text;
-      top: 1rem;
+    .form-label {
+      text-transform: capitalize;
     }
-
-    &:focus {
-      ~ .form-label {
-        position: absolute;
-        top: 0;
-        display: block;
-        transition: 0.2s;
-        font-size: 1rem;
-      }
-      
-      padding-bottom: 6px;  
-      font-weight: 700;
-      border-width: 1px;
-      border-image: linear-gradient(to right, $primary,$secondary);
-      border-image-slice: 1;
-    }
-  }
-
-  .form-label {
-    position: absolute;
-    top: 0;
-    display: block;
-    transition: 0.2s;
-    font-size: 1rem;
-    color: $white;
-    text-transform: capitalize;
   }
 
   .btn-container {

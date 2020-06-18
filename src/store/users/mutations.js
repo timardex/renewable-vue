@@ -17,4 +17,7 @@ export const mutations = {
       return a[payload.sort] > b[payload.sort] ? -1 : 1
     })
   },
+  SEARCH_FILTER(state, payload) {
+    state.searchQuery = payload
+  }
 }

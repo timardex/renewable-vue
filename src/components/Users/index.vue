@@ -2,9 +2,11 @@
   <div id="users">
     <Header :titles="formTitles" />
 
-    <Main v-if="usersList.length" :users="usersList" />
+    <Main v-if="filteredList.length" :users="filteredList" />
     
     <ErrorMsg v-else message="No users in the database, please add new users below."/>
+
+    <Search />
     
     <Footer :titles="formTitles" />
   </div>
@@ -16,6 +18,7 @@ import {mapState} from 'vuex'
 const Header = () => import('@/components/Users/Layout/Header')
 const Main = () => import('@/components/Users/Layout/Main')
 const ErrorMsg = () => import('@/components/Users/Helpers/ErrorMsg')
+const Search = () => import('@/components/Users/Helpers/Search')
 const Footer = () => import('@/components/Users/Layout/Footer')
 
 export default {
@@ -23,10 +26,20 @@ export default {
     Header,
     Main,
     ErrorMsg,
+    Search,
     Footer
   },
   computed: {
-    ...mapState('users', ['usersList', 'formTitles'])
+    ...mapState('users', ['usersList', 'formTitles', 'searchQuery']),
+    filteredList() {
+      return this.usersList.filter((value) => {
+        return (
+          value.name.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+          value.email.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+          value.company.toLowerCase().includes(this.searchQuery.toLowerCase())
+        )
+      })
+    }
   },
   created() {
     this.$store.dispatch('users/getUsers')
@@ -45,7 +58,7 @@ export default {
     margin: 0;
 
     li {
-      padding: 1rem;
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       position: relative;

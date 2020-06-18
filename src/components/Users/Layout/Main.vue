@@ -4,7 +4,7 @@
       v-for="(user, index) in users"
       :key="index"
       class="table-row">
-      <span>#{{index}}</span>
+      <span><i class="far fa-user"></i></span>
       <div
         v-for="(key, name) in user"
         :key="name"
@@ -46,12 +46,17 @@ export default {
 @import '../../../assets/scss/variables.scss';
 .responsive-table {
   .table-row {
-    border-bottom: solid 1px rgba(255,255,255,0.1);
+    background: transparent;
+
+    &:nth-child(even) {
+      background: linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,0.2) 75%,rgba(255,255,255,0) 100%);
+    }
 
     span {
-      margin-left: -1rem;
-      margin-right: .2rem;
+      position: absolute;
+      left: 0;
       color: $white;
+      opacity: .5;
     }
   }
   .col {

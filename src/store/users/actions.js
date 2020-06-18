@@ -22,5 +22,9 @@ export const actions = {
 
   async sortBy({commit}, payload) {
     await commit('SORT_BY', payload)
+  },
+
+  async searchFilter({commit}, payload) {
+    await commit('SEARCH_FILTER', payload)
   }
 }
