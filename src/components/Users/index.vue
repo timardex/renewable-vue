@@ -4,7 +4,7 @@
 
     <Main v-if="usersList.length" :users="usersList"/>
 
-    <p v-else class="text-center">No users in database, please add new users below.</p>
+    <p v-else class="text-center">No users in the database, please add new users below.</p>
 
     <Footer />
   </div>
@@ -44,6 +44,7 @@ export default {
 
     li {
       display: flex;
+      align-items: center;
       width: 100%;
 
       span {

@@ -15,7 +15,7 @@
       </div>
 
       <div class="btn-container text-center">
-        <button >Add User</button>
+        <button title="Add User"><i class="fas fa-plus-circle"></i></button>
       </div>
     </form>
   </div>
@@ -50,14 +50,13 @@ export default {
 .form {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   position: relative;
   padding-bottom: 2rem;
   margin-bottom: 1rem;
 
   .form-group {
     width: 100%;
-    margin: 0 .5rem;
     position: relative;
 
     label {
@@ -65,15 +64,15 @@ export default {
       margin-bottom: .5rem;
     }
 
+    input {
+      padding: .2rem;
+      border: 1px solid rgba(0,0,0,.2)
+    }
+
     label, input {
       display: block;
-      width: 100%;
+      width: 95%;
     }
-  }
-
-  .btn-container {
-    position: absolute;
-    bottom: 0;
   }
 }
 </style>

@@ -4,7 +4,7 @@
       <span v-for="(key, name) in user" :key="name">
         {{key}}
       </span>
-      <i class="fas fa-minus-circle" @click="removeUser(user)"></i>
+      <button @click="removeUser(user)" title="Remove User"><i class="fas fa-minus-circle"></i></button>
     </li>
   </ul>
 </template>
@@ -35,13 +35,6 @@ ul {
     span {
       margin: .2rem;
       background: $color1;
-    }
-
-    .fas {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
     }
   }
 }
