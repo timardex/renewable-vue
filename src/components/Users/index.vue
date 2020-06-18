@@ -6,7 +6,7 @@
     <Message tag="h4" message="Add new User" align-text="left"/>
     <AddUser :titles="formTitles" />
 
-    <Message tag="h4" message="Users List, sort by clicking on titles below" align-text="left"/>
+    <Message tag="h4" message="Users List, sort by clicking on titles" align-text="left"/>
     <UserHeader :titles="formTitles" />
 
     <div v-if="filteredList.length">
