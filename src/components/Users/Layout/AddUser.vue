@@ -61,7 +61,6 @@ export default {
 
 #add-user {
   margin: 0;
-  background: $whiteB;
   padding: $spacing1 $spacing2;
 
   p {

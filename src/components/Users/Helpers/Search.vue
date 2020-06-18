@@ -33,7 +33,6 @@ export default {
 
 #search {
   margin: 0;
-  background: $whiteB;
   padding: $spacing1 $spacing2;
 }
 

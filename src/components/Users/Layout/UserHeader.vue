@@ -1,5 +1,5 @@
 <template>
-  <div class="user-header">
+  <div id="user-header">
     <ul class="responsive-table">
       <li
         v-for="(title, index) in titles"
@@ -45,11 +45,8 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../../assets/scss/variables.scss';
-.user-header {
-  background-color: $whiteB;
-}
+
 .responsive-table {
-  margin: 0;
   overflow: auto;
   white-space: nowrap;
   
