@@ -2,12 +2,12 @@
   <div id="users">
     <Search />
 
-    <Footer :titles="formTitles" />
+    <AddUser :titles="formTitles" />
 
-    <Header :titles="formTitles" />
+    <UserHeader :titles="formTitles" />
 
     <div v-if="filteredList.length">
-      <Main :users="filteredList" />
+      <ListUser :users="filteredList" />
       <Message :message="`Number of Users ${filteredList.length}`" align-text="right"/>
     </div>
     
@@ -18,19 +18,19 @@
 <script>
 import {mapState} from 'vuex'
 
-const Header = () => import('@/components/Users/Layout/Header')
-const Main = () => import('@/components/Users/Layout/Main')
+const UserHeader = () => import('@/components/Users/Layout/UserHeader')
+const ListUser = () => import('@/components/Users/Layout/ListUser')
 const Message = () => import('@/components/Users/Helpers/Message')
 const Search = () => import('@/components/Users/Helpers/Search')
-const Footer = () => import('@/components/Users/Layout/Footer')
+const AddUser = () => import('@/components/Users/Layout/AddUser')
 
 export default {
   components: {
-    Header,
-    Main,
+    UserHeader,
+    ListUser,
     Message,
     Search,
-    Footer
+    AddUser
   },
   computed: {
     ...mapState('users', ['usersList', 'formTitles', 'searchQuery']),
