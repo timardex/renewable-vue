@@ -1,17 +1,27 @@
 <template>
   <div id="users">
+    <Message tag="h4" message="Search User" align-text="left"/>
     <Search />
 
+    <Message tag="h4" message="Add new User" align-text="left"/>
     <AddUser :titles="formTitles" />
 
+    <Message tag="h4" message="Users List, sort by clicking on titles below" align-text="left"/>
     <UserHeader :titles="formTitles" />
 
     <div v-if="filteredList.length">
       <ListUser :users="filteredList" />
-      <Message :message="`Number of Users ${filteredList.length}`" align-text="right"/>
+      <Message
+        tag="p"
+        :message="`Number of Users ${filteredList.length}`"
+        align-text="right"/>
     </div>
     
-    <Message v-else message="No users in the database, please add new users below." align-text="center"/>
+    <Message
+      v-else
+      tag="p"
+      message="No users in the database, please add new users."
+      align-text="center"/>
   </div>
 </template>
 

@@ -1,6 +1,5 @@
 <template>
   <div id="add-user">
-    <Message message="Add new User" align-text="center"/>
     <form
       class="form"
       @submit.prevent="addUser"
@@ -34,11 +33,10 @@
 
 <script>
 const Button = () => import('@/components/Users/Helpers/Button')
-const Message = () => import('@/components/Users/Helpers/Message')
+
 export default {
   components: {
-    Button,
-    Message
+    Button
   },
   props: {
     titles: {
@@ -62,9 +60,9 @@ export default {
 @import '../../../assets/scss/variables.scss';
 
 #add-user {
-  margin: 1rem 0;
+  margin: 0;
   background: $whiteB;
-  padding: 1rem;
+  padding: $spacing1 $spacing2;
 
   p {
     margin: 0;
@@ -104,7 +102,7 @@ export default {
 
   .btn-container {
     position: absolute;
-    right: -.5rem;
+    right: -1.5rem;
 
     @media(max-width: $sizeSM) {
       bottom: 0;

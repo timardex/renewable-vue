@@ -7,6 +7,7 @@
         name="search"
         id="search-field"
         class="form-field"
+        autocomplete="off"
         v-model="searchQuery"
         @input="searchFilter"/>
       <label class="form-label" for="search-field">Search by User, Email or Company</label>
@@ -31,9 +32,9 @@ export default {
 @import '../../../assets/scss/variables.scss';
 
 #search {
-  margin-top: 1rem;
+  margin: 0;
   background: $whiteB;
-  padding: 1rem;
+  padding: $spacing1 $spacing2;
 }
 
 .form-group {
