@@ -24,9 +24,7 @@
         <label class="form-label" :for="name">{{name}}</label>
       </div>
 
-      <div class="btn-container text-center">
-        <Button title="Add User" color-style="green" icon="fas fa-plus-circle" />
-      </div>
+      <Button title="Add User" color-style="green" icon="fas fa-plus-circle" />
     </form>
   </div>
 </template>
@@ -49,8 +47,14 @@ export default {
   }),
   methods: {
     addUser() {
+      const notification = {
+        name: this.form.name,
+        notification: 'added'
+      }
       this.$store.dispatch('users/addUser', this.form)
+      this.$store.dispatch('users/userName', notification)
       this.form = {}
+      
     }
   }
 }
@@ -62,10 +66,6 @@ export default {
 #add-user {
   margin: 0;
   padding: $spacing1 $spacing2;
-
-  p {
-    margin: 0;
-  }
 }
 
 .form {
@@ -99,7 +99,7 @@ export default {
     }
   }
 
-  .btn-container {
+  button {
     position: absolute;
     right: -1.5rem;
 

@@ -22,6 +22,14 @@
       tag="p"
       message="No users in the database, please add new users."
       align-text="center"/>
+
+    <transition name="fade">
+      <Notification
+        v-if="userName"
+        :userName="userName"
+        :userAddedRemoved="userAddedRemoved"
+        :hideNotification="hideNotification"/>
+    </transition>
   </div>
 </template>
 
@@ -33,6 +41,7 @@ const ListUser = () => import('@/components/Users/Layout/ListUser')
 const Message = () => import('@/components/Users/Helpers/Message')
 const Search = () => import('@/components/Users/Helpers/Search')
 const AddUser = () => import('@/components/Users/Layout/AddUser')
+const Notification = () => import('@/components/Users/Helpers/Notification')
 
 export default {
   components: {
@@ -40,10 +49,18 @@ export default {
     ListUser,
     Message,
     Search,
-    AddUser
+    AddUser,
+    Notification
   },
   computed: {
-    ...mapState('users', ['usersList', 'formTitles', 'searchQuery']),
+    ...mapState('users', [
+      'usersList',
+      'formTitles',
+      'searchQuery',
+      'userName',
+      'userAddedRemoved'
+    ]),
+
     filteredList() {
       return this.usersList.filter((value) => {
         return (
@@ -56,6 +73,15 @@ export default {
   },
   created() {
     this.$store.dispatch('users/getUsers')
+  },
+  methods: {
+    hideNotification() {
+      const notification = {
+        name: '',
+        notification: ''
+      }
+      this.$store.dispatch('users/userName', notification)
+    }
   }
 }
 </script>

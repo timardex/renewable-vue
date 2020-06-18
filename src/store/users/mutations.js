@@ -19,5 +19,14 @@ export const mutations = {
   },
   SEARCH_FILTER(state, payload) {
     state.searchQuery = payload
+  },
+  USER_NOTIFICATION(state, payload) {
+    state.userName = payload.name
+    state.userAddedRemoved = payload.notification
+
+    setTimeout(() => {
+      state.userName = ''
+      state.userAddedRemoved = ''
+    }, 2000)
   }
 }

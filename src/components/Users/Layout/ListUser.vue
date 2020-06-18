@@ -37,7 +37,12 @@ export default {
   },
   methods: {
     removeUser(user) {
+      const notification = {
+        name: user.name,
+        notification: 'removed'
+      }
       this.$store.dispatch('users/removeUser', user)
+      this.$store.dispatch('users/userName', notification)
     }
   }
 }

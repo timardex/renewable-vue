@@ -80,7 +80,6 @@ body {
   }
 }
 
-
 .responsive-table {
   padding: 0;
   margin: 0;
@@ -102,4 +101,11 @@ body {
 .list-enter, .list-leave-to {
   opacity: 0;
   transform: translateY(30px);
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: all .3s ease;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }

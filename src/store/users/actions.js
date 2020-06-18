@@ -26,5 +26,9 @@ export const actions = {
 
   async searchFilter({commit}, payload) {
     await commit('SEARCH_FILTER', payload)
+  },
+
+  async userName({commit}, payload) {
+    await commit('USER_NOTIFICATION', payload)
   }
 }
