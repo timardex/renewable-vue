@@ -26,11 +26,11 @@ button {
   width: 35px;
   border: none;
   border-radius: 50px;
-  background-color: $white;
+  background-color: $whiteC;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all .3s linear;
+  transition: all .15s linear;
 
   &:focus {
     border: none;

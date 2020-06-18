@@ -44,6 +44,7 @@ export default {
 <style lang="scss" scoped>
 @import '../../../assets/scss/variables.scss';
 .responsive-table {
+  margin-top: 0;
 
   @media(max-width: $sizeSM) {
       display: none;
@@ -53,9 +54,8 @@ export default {
     font-size: 1.2rem;
     text-transform: capitalize;
     letter-spacing: 0.03rem;
-    background-color: rgba(255,255,255,0.2);
+    background-color: $whiteB;
     color: $white;
-    font-weight: 700;
 
     span {
       cursor: pointer;

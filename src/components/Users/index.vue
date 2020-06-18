@@ -4,11 +4,13 @@
 
     <Main v-if="filteredList.length" :users="filteredList" />
     
-    <ErrorMsg v-else message="No users in the database, please add new users below."/>
+    <Message v-else message="No users in the database, please add new users below." align-text="center"/>
 
     <Search />
     
     <Footer :titles="formTitles" />
+
+    <Message :message="`Number of Users ${filteredList.length}`" align-text="right"/>
   </div>
 </template>
 
@@ -17,7 +19,7 @@ import {mapState} from 'vuex'
 
 const Header = () => import('@/components/Users/Layout/Header')
 const Main = () => import('@/components/Users/Layout/Main')
-const ErrorMsg = () => import('@/components/Users/Helpers/ErrorMsg')
+const Message = () => import('@/components/Users/Helpers/Message')
 const Search = () => import('@/components/Users/Helpers/Search')
 const Footer = () => import('@/components/Users/Layout/Footer')
 
@@ -25,7 +27,7 @@ export default {
   components: {
     Header,
     Main,
-    ErrorMsg,
+    Message,
     Search,
     Footer
   },
@@ -55,7 +57,6 @@ export default {
 
   .responsive-table {
     padding: 0;
-    margin: 0;
 
     li {
       padding: 1rem 2rem;

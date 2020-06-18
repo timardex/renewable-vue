@@ -2,7 +2,7 @@
   <transition-group name="list" tag="ul" class="responsive-table">
     <li
       v-for="user in users"
-      :key="user"
+      :key="user.name"
       class="table-row">
       <span><i class="far fa-user"></i></span>
       <div
@@ -47,16 +47,24 @@ export default {
 .responsive-table {
   .table-row {
     background: transparent;
+    transition: all .3s;
+    border-top: 1px solid $whiteA; 
+    border-bottom: 1px solid $whiteA; 
+
+    &:hover {
+      margin-left: 2rem;
+      background: linear-gradient(to right, $whiteA 0%,$whiteC 75%,$whiteA 100%);
+    }
 
     &:nth-child(even) {
-      background: linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,0.2) 75%,rgba(255,255,255,0) 100%);
+      border-top: 1px solid $whiteC; 
+      border-bottom: 1px solid $whiteC; 
     }
 
     span {
       position: absolute;
-      left: 0;
+      left: .5rem;
       color: $white;
-      opacity: .5;
     }
   }
   .col {

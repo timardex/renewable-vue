@@ -10,8 +10,16 @@ body {
   max-width: 992px;
   margin: auto;
 
-  .text-center {
-    text-align: center;
+  .text {
+    &.left {
+      text-align: left;
+    }
+    &.center {
+      text-align: center;
+    }
+    &.right {
+      text-align: right;
+    }
   }
 
   .form-group {
@@ -22,7 +30,7 @@ body {
     .form-field {
       font-family: inherit;
       border: 0;
-      border-bottom: 1px solid $white;
+      border-bottom: 1px solid $whiteC;
       outline: 0;
       font-size: 1rem;
       color: $white;
@@ -73,13 +81,6 @@ body {
   }
 }
 
-.list-item {
-  display: inline-block;
-  margin-right: 10px;
-}
-.list-enter-active, .list-leave-active {
-  transition: all 1s;
-}
 .list-enter, .list-leave-to {
   opacity: 0;
   transform: translateY(30px);

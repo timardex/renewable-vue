@@ -1,5 +1,6 @@
 <template>
-  <div class="add-user">
+  <div id="add-user">
+    <Message message="Add new User" align-text="center"/>
     <form
       class="form"
       @submit.prevent="addUser"
@@ -32,10 +33,12 @@
 </template>
 
 <script>
-const Button = () => import('@/components/Users//Helpers/Button')
+const Button = () => import('@/components/Users/Helpers/Button')
+const Message = () => import('@/components/Users/Helpers/Message')
 export default {
   components: {
-    Button
+    Button,
+    Message
   },
   props: {
     titles: {
@@ -58,13 +61,21 @@ export default {
 <style lang="scss" scoped>
 @import '../../../assets/scss/variables.scss';
 
+#add-user {
+  margin-top: 2rem;
+  background: $whiteB;
+  padding: 1rem;
+
+  p {
+    margin: 0;
+  }
+}
+
 .form {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  margin-top: 1rem;
-  padding: 0 2rem;
 
   @media(max-width: $sizeSM) {
     display: block;
@@ -79,7 +90,7 @@ export default {
     }
 
     .form-field {
-      width: 90%;
+      width: 85%;
     }
 
     .form-label {
@@ -92,7 +103,7 @@ export default {
     right: .5rem;
 
     @media(max-width: $sizeSM) {
-      bottom: .5rem;
+      bottom: 0;
     }
   }
 }

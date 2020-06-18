@@ -31,8 +31,9 @@ export default {
 @import '../../../assets/scss/variables.scss';
 
 #search {
-  padding: 0 2rem;
   margin-top: 1rem;
+  background: $whiteB;
+  padding: 1rem;
 
   @media(max-width: $sizeSM) {
     padding: 0 1rem;
