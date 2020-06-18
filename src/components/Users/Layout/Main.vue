@@ -4,13 +4,13 @@
       v-for="user in users"
       :key="user.name"
       class="table-row">
-      <span><i class="far fa-user"></i></span>
+      <i class="far fa-user"></i>
       <div
         v-for="(key, name) in user"
         :key="name"
         :data-label="name"
         class="col">
-        {{key}}
+        <span>{{key}}</span>
       </div>
 
       <Button
@@ -66,7 +66,7 @@ export default {
       border-bottom: 1px solid $whiteC; 
     }
 
-    span {
+    i {
       position: absolute;
       left: .5rem;
       color: $white;
@@ -77,6 +77,13 @@ export default {
     }
   }
   .col {
+    span {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 50%;
+    }
+
     @media(max-width: $sizeSM) {
       display: flex;
       padding: .5rem 0;
