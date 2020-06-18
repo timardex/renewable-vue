@@ -44,21 +44,26 @@ export default {
 <style lang="scss" scoped>
 @import '../../../assets/scss/variables.scss';
 .responsive-table {
+  height: 56px;
   margin-top: 0;
+  overflow: auto;
+  white-space: nowrap;
+  background-color: $whiteB;
 
   @media(max-width: $sizeSM) {
-      display: none;
+    text-align: center;
   }
 
   .table-header {
     font-size: 1.2rem;
     text-transform: capitalize;
     letter-spacing: 0.03rem;
-    background-color: $whiteB;
     color: $white;
-
+    padding: 1rem;
+    
     span {
       cursor: pointer;
+      position: relative;
 
       &:hover {
         .fas {
@@ -68,6 +73,9 @@ export default {
 
       .fas {
         display: none;
+        position: absolute;
+        right: -1.2rem;
+        top: .2rem;
       }
     }
   }

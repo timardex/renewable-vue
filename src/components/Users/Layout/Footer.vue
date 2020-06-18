@@ -26,7 +26,7 @@
       </div>
 
       <div class="btn-container text-center">
-        <Button title="Add User" icon="fas fa-plus-circle" />
+        <Button title="Add User" color-style="green" icon="fas fa-plus-circle" />
       </div>
     </form>
   </div>
@@ -62,7 +62,7 @@ export default {
 @import '../../../assets/scss/variables.scss';
 
 #add-user {
-  margin-top: 2rem;
+  margin: 1rem 0;
   background: $whiteB;
   padding: 1rem;
 
@@ -79,7 +79,7 @@ export default {
 
   @media(max-width: $sizeSM) {
     display: block;
-    padding: 0 1rem 2rem;
+    padding: 0 0rem 2rem;
   }
 
   .form-group {
@@ -91,6 +91,10 @@ export default {
 
     .form-field {
       width: 85%;
+
+      @media(max-width: $sizeSM) {
+        width: 100%;
+      }
     }
 
     .form-label {
@@ -100,7 +104,7 @@ export default {
 
   .btn-container {
     position: absolute;
-    right: .5rem;
+    right: -.5rem;
 
     @media(max-width: $sizeSM) {
       bottom: 0;

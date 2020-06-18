@@ -1,16 +1,17 @@
 <template>
   <div id="users">
-    <Header :titles="formTitles" />
-
-    <Main v-if="filteredList.length" :users="filteredList" />
-    
-    <Message v-else message="No users in the database, please add new users below." align-text="center"/>
-
     <Search />
-    
+
     <Footer :titles="formTitles" />
 
-    <Message :message="`Number of Users ${filteredList.length}`" align-text="right"/>
+    <Header :titles="formTitles" />
+
+    <div v-if="filteredList.length">
+      <Main :users="filteredList" />
+      <Message :message="`Number of Users ${filteredList.length}`" align-text="right"/>
+    </div>
+    
+    <Message v-else message="No users in the database, please add new users below." align-text="center"/>
   </div>
 </template>
 
@@ -54,24 +55,5 @@ export default {
 
 #users {
   padding: 0 1rem;
-
-  .responsive-table {
-    padding: 0;
-
-    li {
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      position: relative;
-
-      @media(max-width: $sizeSM) {
-        display: block;
-      }
-    }
-
-    .col {
-      width: 100%;
-    }
-  }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <button :title="title"><i :class="icon"></i></button>
+  <button :title="title" :class="colorStyle"><i :class="icon"></i></button>
 </template>
 
 <script>
@@ -10,6 +10,10 @@ export default {
       default: ''
     },
     icon: {
+      type: String,
+      default: ''
+    },
+    colorStyle: {
       type: String,
       default: ''
     }
@@ -26,7 +30,8 @@ button {
   width: 35px;
   border: none;
   border-radius: 50px;
-  background-color: $whiteC;
+  background-color: $white;
+  font-size: 1.2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,7 +43,15 @@ button {
   }
 
   &:hover {
-    background-color: $primary;
+    color: $white;
+    
+    &.green {
+      background-color: $primary;
+    }
+
+    &.red {
+      background-color: $third;
+    }
   }
 }
 </style>

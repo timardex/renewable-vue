@@ -7,76 +7,93 @@ body {
 
 #app {
   width: 100%;
-  max-width: 992px;
+  max-width: $sizeMD;
   margin: auto;
+}
 
-  .text {
-    &.left {
-      text-align: left;
+.text {
+  &.left {
+    text-align: left;
+  }
+  &.center {
+    text-align: center;
+  }
+  &.right {
+    text-align: right;
+  }
+}
+
+.form-group {
+  position: relative;
+  padding: 1rem 0 0;
+  margin-bottom: 1rem;
+
+  .form-field {
+    font-family: inherit;
+    border: 0;
+    border-bottom: 1px solid $whiteC;
+    outline: 0;
+    font-size: 1rem;
+    color: $white;
+    padding: 7px 0;
+    background: transparent;
+    transition: all 0.2s;
+
+    @media(max-width: $sizeSM) {
+      width: 100%;
     }
-    &.center {
-      text-align: center;
+
+    &:required,&:invalid { box-shadow:none; }
+
+    &::placeholder {
+      color: transparent;
     }
-    &.right {
-      text-align: right;
+
+    &:placeholder-shown ~ .form-label {
+      font-size: 1rem;
+      cursor: text;
+      top: 1rem;
+    }
+
+    &:focus {
+      ~ .form-label {
+        position: absolute;
+        top: 0;
+        display: block;
+        transition: 0.2s;
+        font-size: 1rem;
+      }
+      
+      border-width: 1px;
+      border-image: linear-gradient(to right, $white, $whiteA);
+      border-image-slice: 1;
     }
   }
 
-  .form-group {
+  .form-label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: $white;
+  }
+}
+
+
+.responsive-table {
+  padding: 0;
+
+  li {
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
     position: relative;
-    padding: 1rem 0 0;
-    margin-bottom: 1rem;
+  }
 
-    .form-field {
-      font-family: inherit;
-      border: 0;
-      border-bottom: 1px solid $whiteC;
-      outline: 0;
-      font-size: 1rem;
-      color: $white;
-      padding: 7px 0;
-      background: transparent;
-      transition: border-color 0.2s;
-
-      @media(max-width: $sizeSM) {
-        width: 100%;
-      }
-
-      &:required,&:invalid { box-shadow:none; }
-
-      &::placeholder {
-        color: transparent;
-      }
-
-      &:placeholder-shown ~ .form-label {
-        font-size: 1rem;
-        cursor: text;
-        top: 1rem;
-      }
-
-      &:focus {
-        ~ .form-label {
-          position: absolute;
-          top: 0;
-          display: block;
-          transition: 0.2s;
-          font-size: 1rem;
-        }
-        
-        padding-bottom: 6px;
-        border-width: 1px;
-        border-image: linear-gradient(to right, $primary,$secondary);
-        border-image-slice: 1;
-      }
-    }
-
-    .form-label {
-      position: absolute;
-      top: 0;
-      display: block;
-      transition: 0.2s;
-      font-size: 1rem;
-      color: $white;
+  .col {
+    @media(min-width: $sizeSM) {
+      width: 100%;
     }
   }
 }

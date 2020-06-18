@@ -16,6 +16,7 @@
       <Button
         @click.native="removeUser(user)"
         title="Remove User"
+        color-style="red"
         icon="fas fa-minus-circle" />
     </li>
   </transition-group>
@@ -49,10 +50,14 @@ export default {
     background: transparent;
     transition: all .3s;
     border-top: 1px solid $whiteA; 
-    border-bottom: 1px solid $whiteA; 
+    border-bottom: 1px solid $whiteA;
+
+    @media(max-width: $sizeSM) {
+      display: block;
+    }
 
     &:hover {
-      margin-left: 2rem;
+      margin-left: 1.5rem;
       background: linear-gradient(to right, $whiteA 0%,$whiteC 75%,$whiteA 100%);
     }
 
@@ -65,6 +70,10 @@ export default {
       position: absolute;
       left: .5rem;
       color: $white;
+
+      @media(max-width: $sizeSM) {
+        top: .5rem;
+      }
     }
   }
   .col {
@@ -76,7 +85,6 @@ export default {
         content: attr(data-label);
         color: $white;
         width: 100px;
-        padding-right: 1rem;
         text-align: left;
         text-transform: capitalize;
       }

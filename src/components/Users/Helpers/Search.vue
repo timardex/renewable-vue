@@ -34,10 +34,6 @@ export default {
   margin-top: 1rem;
   background: $whiteB;
   padding: 1rem;
-
-  @media(max-width: $sizeSM) {
-    padding: 0 1rem;
-  }
 }
 
 .form-group {
