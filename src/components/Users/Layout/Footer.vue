@@ -1,8 +1,26 @@
 <template>
   <div class="add-user">
-    <form class="form" @submit.prevent="addUser" v-for="(title, index) in titles" :key="index">
-      <div class="form-group" v-for="(key, name) in title" :key="name">
-        <input :type="`${name === 'email' ? 'email' : 'text'}`" class="form-field" :placeholder="name" :id="name" :name="name" v-model="form[name]" required autocomplete="off"/>
+    <form
+      class="form"
+      @submit.prevent="addUser"
+      v-for="(title, index) in titles"
+      :key="index">
+
+      <div
+        class="form-group"
+        v-for="(key, name) in title"
+        :key="name">
+
+        <input
+          :type="`${name === 'email' ? 'email' : 'text'}`" 
+          :placeholder="name"
+          :id="name"
+          :name="name"
+          v-model="form[name]"
+          required
+          autocomplete="off"
+          class="form-field"/>
+
         <label class="form-label" :for="name">{{name}}</label>
       </div>
 
@@ -50,6 +68,7 @@ export default {
 
   @media(max-width: $sizeSM) {
     display: block;
+    padding: 0 1rem 2rem;
   }
 
   .form-group {
@@ -121,6 +140,10 @@ export default {
   .btn-container {
     position: absolute;
     right: .5rem;
+
+    @media(max-width: $sizeSM) {
+      bottom: .5rem;
+    }
   }
 }
 </style>

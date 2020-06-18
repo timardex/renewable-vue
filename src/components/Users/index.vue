@@ -39,56 +39,24 @@ export default {
 
 #users {
   padding: 0 1rem;
-}
 
-.responsive-table {
-  padding: 0;
-  margin: 0;
+  .responsive-table {
+    padding: 0;
+    margin: 0;
 
-  li {
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-
-    @media(max-width: $sizeSM) {
-      display: block;
-    }
-  }
-  .table-header {
-    font-size: 1.2rem;
-    text-transform: capitalize;
-    letter-spacing: 0.03rem;
-    background-color: rgba(255,255,255,0.3);
-    color: $white;
-    font-weight: 700;
-
-    span {
-      cursor: pointer;
-    }
-
-    @media(max-width: $sizeSM) {
-      display: none;
-    }
-  }
-  .table-row {
-    border-bottom: solid 1px rgba(255,255,255,0.1);
-  }
-  .col {
-    width: 100%;
-
-    @media(max-width: $sizeSM) {
+    li {
+      padding: 1rem;
       display: flex;
-      padding: .5rem 0;
+      justify-content: space-between;
+      position: relative;
 
-      &:before {
-        content: attr(data-label);
-        color: $white;
-        width: 100px;
-        padding-right: 1rem;
-        text-align: left;
-        text-transform: capitalize;
+      @media(max-width: $sizeSM) {
+        display: block;
       }
+    }
+
+    .col {
+      width: 100%;
     }
   }
 }
