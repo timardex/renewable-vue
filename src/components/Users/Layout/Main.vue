@@ -1,8 +1,8 @@
 <template>
-  <ul class="responsive-table">
+  <transition-group name="list" tag="ul" class="responsive-table">
     <li
-      v-for="(user, index) in users"
-      :key="index"
+      v-for="user in users"
+      :key="user"
       class="table-row">
       <span><i class="far fa-user"></i></span>
       <div
@@ -18,7 +18,7 @@
         title="Remove User"
         icon="fas fa-minus-circle" />
     </li>
-  </ul>
+  </transition-group>
 </template>
 
 <script>
