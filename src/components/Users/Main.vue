@@ -1,9 +1,9 @@
 <template>
-  <ul>
-    <li v-for="(user, index) in users" :key="index">
-      <span v-for="(key, name) in user" :key="name">
+  <ul class="responsive-table">
+    <li v-for="(user, index) in users" :key="index" class="table-row">
+      <div v-for="(key, name) in user" :key="name" :data-label="name" class="col">
         {{key}}
-      </span>
+      </div>
       <button @click="removeUser(user)" title="Remove User"><i class="fas fa-minus-circle"></i></button>
     </li>
   </ul>
@@ -27,15 +27,9 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../assets/scss/variables.scss';
-
-ul {
-  li {
-    position: relative;
-
-    span {
-      margin: .2rem;
-      background: $color1;
-    }
-  }
+button {
+  position: absolute;
+  right: .5rem; top: 0; bottom: 0;
+  margin: auto;
 }
 </style>

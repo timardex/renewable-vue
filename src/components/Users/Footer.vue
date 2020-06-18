@@ -53,7 +53,7 @@ export default {
   align-items: flex-end;
   position: relative;
   padding-bottom: 2rem;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
 
   .form-group {
     width: 100%;

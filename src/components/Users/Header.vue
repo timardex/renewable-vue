@@ -1,9 +1,9 @@
 <template>
-  <ul>
-    <li>
-      <span v-for="(title, index) in titles" :key="index">
+  <ul class="responsive-table">
+    <li class="table-header">
+      <div v-for="(title, index) in titles" :key="index" class="col">
         {{title}}
-      </span>
+      </div>
     </li>
   </ul>
 </template>
@@ -19,14 +19,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../../assets/scss/variables.scss';
 
-ul {
-  li {
-    span {
-      text-align: center;
-      text-transform: capitalize;
-    }
-  }
-}
 </style>
