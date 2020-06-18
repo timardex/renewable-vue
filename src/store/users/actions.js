@@ -18,5 +18,9 @@ export const actions = {
 
   async addUser({commit}, payload) {
     await commit('ADD_USER', payload)
+  },
+
+  async sortBy({commit}, payload) {
+    await commit('SORT_BY', payload)
   }
 }

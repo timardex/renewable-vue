@@ -1,6 +1,6 @@
 <template>
   <div id="users">
-    <Header />
+    <Header :titles="formTitles"/>
     <Main v-if="usersList.length" :users="usersList"/>
     <p v-else class="text-center">No users in the database, please add new users below.</p>
     <Footer />
@@ -55,6 +55,10 @@ export default {
     font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.03rem;
+
+    span {
+      cursor: pointer;
+    }
 
     @media(max-width: $sizeSM) {
       display: none;
