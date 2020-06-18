@@ -18,6 +18,7 @@ export default {
 body {
   margin: 0;
   font-family: $font1;
+  background: linear-gradient(to right, #25c481, #25b7c4);
 }
 
 #app {
@@ -27,15 +28,6 @@ body {
 
   .text-center {
     text-align: center;
-  }
-
-  button {
-    cursor: pointer;
-    height: 25px;
-    width: 25px;
-    border: none;
-    border-radius: 50px;
-    background-color: $color1;
   }
 }
 </style>

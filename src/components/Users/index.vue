@@ -1,30 +1,35 @@
 <template>
   <div id="users">
-    <Header :titles="formTitles"/>
-    <Main v-if="usersList.length" :users="usersList"/>
-    <p v-else class="text-center">No users in the database, please add new users below.</p>
-    <Footer />
+    <Header :titles="formTitles" />
+
+    <Main v-if="usersList.length" :users="usersList" />
+    
+    <ErrorMsg v-else message="No users in the database, please add new users below."/>
+    
+    <Footer :titles="formTitles" />
   </div>
 </template>
 
 <script>
 import {mapState} from 'vuex'
 
-const Header = () => import('@/components/Users/Header')
-const Main = () => import('@/components/Users/Main')
-const Footer = () => import('@/components/Users/Footer')
+const Header = () => import('@/components/Users/Layout/Header')
+const Main = () => import('@/components/Users/Layout/Main')
+const ErrorMsg = () => import('@/components/Users/Helpers/ErrorMsg')
+const Footer = () => import('@/components/Users/Layout/Footer')
 
 export default {
   components: {
     Header,
     Main,
+    ErrorMsg,
     Footer
   },
   computed: {
     ...mapState('users', ['usersList', 'formTitles'])
   },
   created() {
-    this.$store.dispatch('users/getUsers');
+    this.$store.dispatch('users/getUsers')
   }
 }
 </script>
@@ -51,10 +56,12 @@ export default {
     }
   }
   .table-header {
-    background-color: $color2;
-    font-size: 1rem;
-    text-transform: uppercase;
+    font-size: 1.2rem;
+    text-transform: capitalize;
     letter-spacing: 0.03rem;
+    background-color: rgba(255,255,255,0.3);
+    color: $white;
+    font-weight: 700;
 
     span {
       cursor: pointer;
@@ -65,8 +72,7 @@ export default {
     }
   }
   .table-row {
-    background-color: $color1;
-    box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+    border-bottom: solid 1px rgba(255,255,255,0.1);
   }
   .col {
     width: 100%;
@@ -77,7 +83,7 @@ export default {
 
       &:before {
         content: attr(data-label);
-        color: #6C7A89;
+        color: $white;
         width: 100px;
         padding-right: 1rem;
         text-align: left;
