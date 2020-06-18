@@ -9,7 +9,10 @@
         v-for="(key, name) in title"
         :key="name"
         class="col">
-        <span @click="sortBy(name)">{{name}}</span>
+        <span @click="sortBy(name)">
+          {{name}}
+          <i :class="`fas fa-chevron-${order ? 'up' : 'down'}`"></i>
+        </span>
       </div>
     </li>
   </ul>
@@ -56,6 +59,16 @@ export default {
 
     span {
       cursor: pointer;
+
+      &:hover {
+        .fas {
+          display: inline-block;
+        }
+      }
+
+      .fas {
+        display: none;
+      }
     }
   }
 }

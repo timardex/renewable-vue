@@ -22,18 +22,23 @@ export default {
 
 button {
   cursor: pointer;
-  height: 25px;
-  width: 25px;
+  height: 35px;
+  width: 35px;
   border: none;
   border-radius: 50px;
   background-color: $white;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all .3s linear;
 
   &:focus {
     border: none;
     outline: none;
+  }
+
+  &:hover {
+    background-color: $primary;
   }
 }
 </style>
