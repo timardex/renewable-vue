@@ -4,7 +4,7 @@
     <Search />
 
     <Message tag="h4" message="Add new User" align-text="left"/>
-    <AddUser :titles="formTitles" />
+    <AddUser :titles="formTitles" :users="filteredList" />
 
     <Message tag="h4" message="Users List, sort by clicking on titles" align-text="left"/>
     <UserHeader :titles="formTitles" />
@@ -27,8 +27,7 @@
       <Notification
         v-if="userName"
         :userName="userName"
-        :userAddedRemoved="userAddedRemoved"
-        :hideNotification="hideNotification"/>
+        :userAddedRemoved="userAddedRemoved"/>
     </transition>
   </div>
 </template>
@@ -73,15 +72,6 @@ export default {
   },
   created() {
     this.$store.dispatch('users/getUsers')
-  },
-  methods: {
-    hideNotification() {
-      const notification = {
-        name: '',
-        notification: ''
-      }
-      this.$store.dispatch('users/userName', notification)
-    }
   }
 }
 </script>

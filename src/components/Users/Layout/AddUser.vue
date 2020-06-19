@@ -26,35 +26,54 @@
 
       <Button title="Add User" color-style="green" icon="fas fa-plus-circle" />
     </form>
+
+    <Message v-if="dublicationMsg" tag="p" :message="`User ${this.form.name} already exists!`" align-text="center"/>
   </div>
 </template>
 
 <script>
 const Button = () => import('@/components/Users/Helpers/Button')
+const Message = () => import('@/components/Users/Helpers/Message')
 
 export default {
   components: {
-    Button
+    Button,
+    Message
   },
   props: {
     titles: {
       type: Array,
       default: null
+    },
+    users: {
+      type: Array,
+      default: null
     }
   },
   data: () => ({
-    form: {}
+    form: {},
+    dublicationMsg: false
   }),
   methods: {
     addUser() {
+      const usersExists = this.users.some(user => user.name === this.form.name);
       const notification = {
         name: this.form.name,
         notification: 'added'
       }
-      this.$store.dispatch('users/addUser', this.form)
-      this.$store.dispatch('users/userName', notification)
-      this.form = {}
-      
+
+      if(!usersExists) {
+        this.dublicationMsg = false
+        this.$store.dispatch('users/addUser', this.form)
+        this.$store.dispatch('users/userName', notification)
+        this.form = {}
+      } else {
+        this.dublicationMsg = true
+
+        setTimeout(() => {
+          this.dublicationMsg = false
+        }, 2000)
+      }      
     }
   }
 }

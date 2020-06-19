@@ -28,4 +28,8 @@ h1, h2, h3, h4, h5, h6 {
   padding: $spacing1 $spacing2;
   margin: 1rem 0 .2rem;
 }
+
+p {
+  margin: 1rem 0;
+}
 </style>

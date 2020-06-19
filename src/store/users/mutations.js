@@ -27,6 +27,6 @@ export const mutations = {
     setTimeout(() => {
       state.userName = ''
       state.userAddedRemoved = ''
-    }, 2000)
+    }, 3000)
   }
 }

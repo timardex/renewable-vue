@@ -1,4 +1,6 @@
 @import './variables.scss';
+@import './reset.scss';
+
 body {
   margin: 0;
   font-family: $font1;
@@ -108,4 +110,5 @@ body {
 }
 .fade-enter, .fade-leave-to {
   opacity: 0;
+  transform: translateX(100px);
 }

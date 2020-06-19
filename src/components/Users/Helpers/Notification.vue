@@ -1,7 +1,9 @@
 <template>
   <div id="notification">
-    <i @click="hideNotification" class="far fa-times-circle"></i>
-    <h3>{{userName}} {{userAddedRemoved}} successfully</h3>
+    <div>
+      <i @click="hideNotification" class="far fa-times-circle"></i>
+      <p>{{userName}} {{userAddedRemoved}} successfully</p>
+    </div>
   </div>
 </template>
 
@@ -15,10 +17,15 @@ export default {
     userAddedRemoved: {
       type: String,
       default: ''
-    },
-    hideNotification: {
-      type: Function,
-      default: null
+    }
+  },
+  methods: {
+    hideNotification() {
+      const notification = {
+        name: '',
+        notification: ''
+      }
+      this.$store.dispatch('users/userName', notification)
     }
   }
 }
@@ -29,23 +36,37 @@ export default {
 
 #notification {
   position: fixed;
-  bottom: 1rem; left: 0; right: 0;
-  width: 250px;
+  bottom: 0; left: 0; right: 0;
+  width: 100%;
+  height: 100%;
+  max-width: $sizeMD;
   margin: auto;
-  text-align: center;
-  padding: 1rem;
-  background: $whiteB;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  pointer-events: none;
+
+  div {
+    position: relative;
+    text-align: center;
+    background: $white;
+    max-width: 250px;
+    margin: 1rem;
+    padding: 1rem;
+    pointer-events: all;
+    border-radius: 5px;
+  }
 
   i {
     position: absolute;
-    top: 0; right: 0;
-    background: $whiteC;
+    top: -.5rem; right: -.5rem;
+    background: $primary;
     padding: .2rem;
     cursor: pointer;
-    border-bottom-left-radius: 5px;
+    border-radius: 50%;
   }
 
-  h3 {
+  p {
     margin: 0;
   }
 }
